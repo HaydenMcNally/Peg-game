@@ -6,15 +6,22 @@ public class Game {
 	
 	public static void main(String[] args) {
 		boolean notwin = true;
+		boolean notloss = true;
 		Hashtable<String, Node> nodes = new Hashtable<String,Node>(); 
 		nodes = createNodes();
-		while (notwin) {
+		while (notwin && notloss) {
+			int l = 0;
 			for (String k :nodes.keySet() ) {
 				ArrayList<String> moves = nodes.get(k).checkMove(nodes);
 				if (!moves.isEmpty()) {
 					System.out.println(k);
 					System.out.println(moves);
+					l =+ 1;
 				}
+			}
+			if (l== 0) {
+				notloss = false;
+				break;
 			}
 			Scanner input = new Scanner(System.in);
 			System.out.println("Enter next move in 'node','node jumped over','node landed on'");
@@ -30,6 +37,11 @@ public class Game {
 				notwin = false;
 			}
 			num = 0;
+		}
+		if (!notwin)
+		System.out.println("You win");
+		else {
+			System.out.println("You lost");
 		}
 	}
 	

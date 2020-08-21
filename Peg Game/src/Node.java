@@ -59,7 +59,7 @@ public class Node {
 				if (!nodes.get(""+(row+2)+number).getStatus())
 					if (nodes.get(""+(row+1)+number).getStatus())
 						moves.add("("+row+number+","+(row+1)+number+","+(row+2)+number+")");
-			if (row - 2 >0 && row - 2 == number)
+			if (row - 2 >0 && row - 2 >= number)
 				if (!nodes.get(""+(row-2)+number).getStatus())
 					if (nodes.get(""+(row-1)+number).getStatus())
 						moves.add("("+row+number+","+(row-1)+number+","+(row-2)+number+")");
